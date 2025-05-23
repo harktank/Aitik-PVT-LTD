@@ -50,7 +50,7 @@ export default function Home() {
                 <div className="flex flex-wrap gap-4 pt-4">
                 <Link href="/contact" passHref legacyBehavior>
     <Button asChild size="lg" className="bg-red-600 hover:bg-red-700">
-      <a> {/* <a> tag is needed for legacyBehavior or if Button doesn't forward ref correctly */}
+      <a>
         Get Started <ArrowRight className="ml-2 h-4 w-4" />
       </a>
     </Button>
@@ -58,7 +58,7 @@ export default function Home() {
 
   <Link href="/services" passHref legacyBehavior>
     <Button asChild size="lg" className="text-white border-white hover:bg-white/10">
-      <a> {/* <a> tag is needed for legacyBehavior or if Button doesn't forward ref correctly */}
+      <a>
         Our Services
       </a>
     </Button>
@@ -71,15 +71,22 @@ export default function Home() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <div className="relative w-72 h-72 animate-pulse-slow">
+                {/* === MODIFIED LOGO CONTAINER FOR TOUCHABLE ANIMATION START === */}
+                <motion.div
+                  className="relative w-92 h-92 animate-pulse-slow bg-white rounded-xl p-6 shadow-lg flex items-center justify-center cursor-pointer" // Added cursor-pointer
+                  whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.2)" }} // Scale up and enhance shadow on hover
+                  whileTap={{ scale: 0.95 }} // Scale down on tap/click
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }} // Springy transition
+                >
                   <Image
                     src="/logo.png"
                     alt="AITIK Software Logo"
-                    width={300}
-                    height={300}
+                    width={400}
+                    height={400}
                     className="object-contain"
                   />
-                </div>
+                </motion.div>
+                {/* === MODIFIED LOGO CONTAINER FOR TOUCHABLE ANIMATION END === */}
               </motion.div>
             </div>
           </div>
@@ -125,11 +132,6 @@ export default function Home() {
                   title: "Software Development",
                   description: "Scalable, secure, and efficient software solutions for complex business problems.",
                 },
-                // {
-                //   icon: <BarChart3 className="h-10 w-10 text-red-600" />,
-                //   title: "Data Analytics",
-                //   description: "Transform your data into actionable insights to drive business decisions.",
-                // },
               ].map((service, index) => (
                 <AnimatedCard
                   key={index}
@@ -224,75 +226,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Gallery Preview
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <motion.div
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0a0a5e] mb-4">Our Work</h2>
-              <p className="text-gray-600 max-w-3xl mx-auto">
-                Explore our portfolio of successful projects across various industries.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              variants={staggerContainer}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-            >
-              {[
-                { title: "E-commerce Platform", category: "Retail" },
-                { title: "Healthcare Management System", category: "Healthcare" },
-                { title: "Logistics Tracking App", category: "Transportation" },
-                { title: "Media Content Platform", category: "Media" },
-                { title: "Communication Portal", category: "Communication" },
-                { title: "Inventory Management", category: "Retail" },
-              ].map((project, index) => (
-                <AnimatedCard
-                  key={index}
-                  delay={index}
-                  className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="aspect-video bg-gray-200 relative overflow-hidden">
-                    <Image
-                      src={`/placeholder.svg?height=300&width=500`}
-                      alt={project.title}
-                      width={500}
-                      height={300}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a5e]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                      <div className="p-6 text-white">
-                        <div className="text-sm font-medium text-red-300 mb-1">{project.category}</div>
-                        <h3 className="text-xl font-bold">{project.title}</h3>
-                      </div>
-                    </div>
-                  </div>
-                </AnimatedCard>
-              ))}
-            </motion.div>
-
-            <motion.div
-              className="text-center mt-12"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <Button asChild className="bg-[#0a0a5e] hover:bg-[#1a1a7a]">
-                <Link href="/gallery">View Full Gallery</Link>
-              </Button>
-            </motion.div>
-          </div>
-        </section> */}
 
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-r from-[#0a0a5e] to-[#1a1a7a] text-white relative overflow-hidden">

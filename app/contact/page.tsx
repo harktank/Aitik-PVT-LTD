@@ -83,9 +83,9 @@ export default function Contact() {
                     <div className="ml-4">
                       <h3 className="text-lg font-semibold text-[#0a0a5e]">Our Location</h3>
                       <p className="text-gray-600 mt-1">
-                        Juhi Niharika Mirage, 9th Floor, office no. 911,
+                      Branch 1 - Shop no. F 38, Destination centre 1, Nanded city, Sinhgad road, Pune 411041
                         <br />
-                        Sector -10, Kharghar- 410210
+                      Branch 2 - Juhi Niharika Mirage, 9th Floor, office no. 911,  Sector -10, Kharghar- 410210
                       </p>
                     </div>
                   </div>

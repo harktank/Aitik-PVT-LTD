@@ -10,12 +10,13 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <div className="relative h-10 w-10 mr-2">
-                <Image src="/logo.png" alt="AITIK Software Logo" width={40} height={40} className="object-contain" />
+              {/* Updated div for the logo wrapper */}
+              <div className="relative h-12 w-12 mr-2 bg-white rounded-full p-1 flex items-center justify-center">
+                <Image src="/logo.png" alt="AITIK Software Logo" width={42} height={42} className="object-contain" />
               </div>
-              <span className="font-bold text-xl">AITIK Software</span>
+              <span className="font-bold text-xl">AITIK Software  Pvt.Ltd</span>
             </div>
-            <p className="text-gray-300 mb-4">Transforming businesses with next-gen technology solutions since 2022.</p>
+            <p className="text-gray-300 mb-4">Transforming businesses with next-gen technology solutions since 2025.</p>
             <div className="flex space-x-4">
               <Link href="#" className="text-white hover:text-red-400 transition-colors">
                 <Facebook className="h-5 w-5" />
@@ -101,7 +102,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-blue-800 mt-12 pt-8 text-center text-gray-300">
-          <p>&copy; {new Date().getFullYear()} AITIK Software Pvt. Ltd. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} AITIK Software Pvt. Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>
